@@ -52,7 +52,7 @@ public class EmployeeService extends ServiceBase {
             //社員番号とハッシュ化済パスワードを条件に未削除の従業員を1件取得する
             e = em.createNamedQuery("employee.getByCodeAndPass", Employee.class)
                     .setParameter("code", code)
-                    .setParameter("password", pass)
+                    .setParameter("pass", pass)
                     .getSingleResult();
 
         } catch (NoResultException ex) {
@@ -199,9 +199,9 @@ public class EmployeeService extends ServiceBase {
 
         boolean isValidEmployee = false;
         if (code != null && !code.equals("") && plainPass != null && !plainPass.equals("")) {
-            Employee ev = findOne(code, plainPass, pepper);
+            Employee e = findOne(code, plainPass, pepper);
 
-            if (ev != null && ev.getId() != null) {
+            if (e != null && e.getId() != null) {
 
                 //データが取得できた場合、認証成功
                 isValidEmployee = true;
