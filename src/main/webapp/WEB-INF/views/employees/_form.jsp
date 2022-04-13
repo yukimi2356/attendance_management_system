@@ -25,9 +25,9 @@
 
 <label for="${AttributeConst.EMP_DIV.getValue()}">所属</label><br />
 <select name="${AttributeConst.EMP_DIV.getValue()}">
-    <option value="${AttributeConst.EMP_SALE}"<c:if test="${employee.division == AttributeConst.EMP_SALE}"> selected</c:if>>営業</option>
-    <option value="${AttributeConst.EMP_DEV}"<c:if test="${employee.division == AttributeConst.EMP_DEV}"> selected</c:if>>開発</option>
-    <option value="${AttributeConst.EMP_MAN}"<c:if test="${employee.division == AttributeConst.EMP_MAN}"> selected</c:if>>管理</option>
+    <option value="${AttributeConst.EMP_SALE}"<c:if test="${employee.division == AttributeConst.EMP_SALE}"> selected</c:if>>営業部</option>
+    <option value="${AttributeConst.EMP_DEV}"<c:if test="${employee.division == AttributeConst.EMP_DEV}"> selected</c:if>>開発部</option>
+    <option value="${AttributeConst.EMP_MAN}"<c:if test="${employee.division == AttributeConst.EMP_MAN}"> selected</c:if>>管理部</option>
 </select>
 <br /><br />
 
