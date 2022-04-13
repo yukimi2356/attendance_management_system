@@ -7,7 +7,7 @@
 		<class>models.Calendar</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/message_board?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/attendance_management_system?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true"/>
 			<property name="javax.persistence.jdbc.user" value="attenduser"/>
 			<property name="javax.persistence.jdbc.password" value="attendpass"/>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>

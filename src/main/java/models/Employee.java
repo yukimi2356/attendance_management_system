@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,21 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Table(name = "employees")
+@NamedQueries({
+    @NamedQuery(
+            name = "employee.getAll",
+            query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"),
+    @NamedQuery(
+            name = "employee.count",
+            query = "SELECT COUNT(e) FROM Employee AS e"),
+    @NamedQuery(
+            name = "employee.countRegisteredByCode",
+            query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :" + "code"),
+    @NamedQuery(
+            name = "employee.getByCodeAndPass",
+            query = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + "code" + " AND e.pass = :" + "pass")
+})
+
 @Entity
 public class Employee {
     @Id
