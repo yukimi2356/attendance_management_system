@@ -25,9 +25,15 @@ public enum AttributeConst {
     EMP_COUNT("employees_count"),
     EMP_ID("id"),
     EMP_CODE("code"),
+    EMP_DIV("division"),
     EMP_PASS("password"),
     EMP_NAME("name"),
     EMP_ADMIN_FLG("admin_flag"),
+
+    //部署
+    EMP_SALE("sales"),
+    EMP_DEV("development"),
+    EMP_MAN("management"),
 
     //管理者フラグ
     ROLE_ADMIN(2),
