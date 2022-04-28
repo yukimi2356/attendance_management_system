@@ -1,6 +1,6 @@
 package models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +26,24 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Table(name = "attendance")
+@NamedQueries({
+    @NamedQuery(
+            name = "attendance.getAll",
+            query = "SELECT a FROM Attendance AS a ORDER BY a.id DESC"),
+    @NamedQuery(
+            name = "attendance.count",
+            query = "SELECT COUNT(a) FROM Attendance AS a"),
+    @NamedQuery(
+            name = "attendance.getAllMine",
+            query = "SELECT a FROM Attendance AS a WHERE a.employee = :employee ORDER BY a.id DESC"),
+    @NamedQuery(
+            name = "attendance.countAllMine",
+            query = "SELECT COUNT(a) FROM Attendance AS a WHERE a.employee = :employee"),
+    @NamedQuery(
+            name = "attendance.getByIdAndDay",
+            query = "SELECT a FROM Attendance AS a WHERE a.employee = :id AND a.date = :date")
+})
+
 @Entity
 
 public class Attendance {
@@ -39,7 +59,7 @@ public class Attendance {
 
     //日付
     @Column(name = "date", nullable = false)
-    private LocalDate date;
+    private String date;
 
     //所定勤務時間
     @Column(name = "scheduled_hours")
@@ -58,24 +78,24 @@ public class Attendance {
     private String leavedAt;
 
     //実勤務時刻
-    @Column(name = "actual_hours")
-    private Integer actualHours;
+    @Column(name = "actual_hours", nullable = true)
+    private Long actualHours;
 
     //遅刻時間
     @Column(name = "late", nullable = true)
-    private Integer late;
+    private Long late;
 
     //早退時間
     @Column(name = "early", nullable = true)
-    private Integer early;
+    private Long early;
 
     //時間外時間
     @Column(name = "overtime", nullable = true)
-    private Integer overtime;
+    private Long overtime;
 
     //深夜時間
     @Column(name = "midnight", nullable = true)
-    private Integer midnight;
+    private Long midnight;
 
     //修正内容
     @Column(name = "revision", nullable = true)
@@ -85,6 +105,13 @@ public class Attendance {
     @Column(name = "comment", nullable = true)
     private String comment;
 
+    //作成日時
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
+
+    //更新日時
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
 
 }
