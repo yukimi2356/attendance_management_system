@@ -19,11 +19,11 @@ public class AttendanceValidator {
     public static List<String> validate(Attendance a) {
         List<String> errors = new ArrayList<String>();
 
-        //出勤打刻のチェック
-        String attendedAtError = validateAttend(a.getAttendedAt());
-        if (!attendedAtError.equals("")) {
-            errors.add(attendedAtError);
-        }
+//        //出勤打刻のチェック
+//        String attendedAtError = validateAttend(a.getAttendedAt());
+//        if (!attendedAtError.equals("")) {
+//            errors.add(attendedAtError);
+//        }
         return errors;
     }
 

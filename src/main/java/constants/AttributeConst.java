@@ -52,7 +52,22 @@ public enum AttributeConst {
     ATD_DATE("attendance_date"),
     ATTENDED_AT("attended_at"),
     LEAVED_AT("leaved_at"),
-    ACTUAL_HOURS("actual_hours");
+    LATE("late"),
+    EARLY("early"),
+    OVERTIME("overtime"),
+    MIDNIGHT("midnight"),
+    COMMENT("comment"),
+    REVISION("revision"),
+    ACTUAL_HOURS("actual_hours"),
+    STATUS("status"),
+    SYUKKIN("syukkin"),
+    YUKYU("yukyu"),
+    KEKKIN("kekkin"),
+    TOTAL_ATTENDANCE("total_attendance"),
+    TOTAL_LATE("total_late"),
+    TOTAL_EARLY("total_early"),
+    TOTAL_OVERTIME("total_overtime"),
+    TOTAL_MIDNIGHT("total_midnight");
 
     private final String text;
     private final Integer i;

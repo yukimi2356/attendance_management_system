@@ -21,6 +21,7 @@ public enum ForwardConst {
     CMD_CREATE("create"),
     CMD_ATTEND("attend"),
     CMD_LEAVE("leave"),
+    CMD_REST("rest"),
     CMD_EDIT("edit"),
     CMD_UPDATE("update"),
     CMD_DESTROY("destroy"),

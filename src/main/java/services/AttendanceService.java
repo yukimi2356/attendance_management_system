@@ -15,19 +15,32 @@ import models.validators.AttendanceValidator;
 
 public class AttendanceService extends ServiceBase {
 
-
+//
+//    /**
+//     * 指定した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得しAttendanceのリストで返却する
+//     * @param employee 従業員
+//     * @param page ページ数
+//     * @return 一覧画面に表示するデータのリスト
+//     */
+//    public List<Attendance> getMinePerPage(Employee employee, int page) {
+//
+//        List<Attendance> Attendance = em.createNamedQuery("attendance.getAllMine", Attendance.class)
+//                .setParameter("employee", employee)
+//                .setFirstResult(15 * (page - 1))
+//                .setMaxResults(15)
+//                .getResultList();
+//        return Attendance;
+//    }
+//
     /**
-     * 指定した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得しAttendanceのリストで返却する
+     * 指定した従業員が作成した日報データを取得しAttendanceのリストで返却する
      * @param employee 従業員
-     * @param page ページ数
      * @return 一覧画面に表示するデータのリスト
      */
-    public List<Attendance> getMinePerPage(Employee employee, int page) {
+    public List<Attendance> getAllMine(Employee employee) {
 
         List<Attendance> Attendance = em.createNamedQuery("attendance.getAllMine", Attendance.class)
                 .setParameter("employee", employee)
-                .setFirstResult(15 * (page - 1))
-                .setMaxResults(15)
                 .getResultList();
         return Attendance;
     }
@@ -46,19 +59,19 @@ public class AttendanceService extends ServiceBase {
         return count;
     }
 
-    /**
-     * 指定されたページ数の一覧画面に表示する勤怠データを取得し、Attendanceのリストで返却する
-     * @param page ページ数
-     * @return 一覧画面に表示するデータのリスト
-     */
-    public List<Attendance> getAllPerPage(int page) {
-
-        List<Attendance> attendance = em.createNamedQuery( "attendance.getAll", Attendance.class)
-                .setFirstResult(15 * (page - 1))
-                .setMaxResults(15)
-                .getResultList();
-        return attendance;
-    }
+//    /**
+//     * 指定されたページ数の一覧画面に表示する勤怠データを取得し、Attendanceのリストで返却する
+//     * @param page ページ数
+//     * @return 一覧画面に表示するデータのリスト
+//     */
+//    public List<Attendance> getAllPerPage(int page) {
+//
+//        List<Attendance> attendance = em.createNamedQuery( "attendance.getAll", Attendance.class)
+//                .setFirstResult(15 * (page - 1))
+//                .setMaxResults(15)
+//                .getResultList();
+//        return attendance;
+//    }
 
     /**
      * 社員番号、日付を条件に取得したデータを Attendanceのインスタンスで返却する

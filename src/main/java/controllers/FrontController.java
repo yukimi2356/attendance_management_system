@@ -76,6 +76,7 @@ public class FrontController extends HttpServlet {
 
             //リクエストパラメータに設定されている"action"の値が不正の場合(例:action=xxxxx 等、該当するActionクラスがない場合)
             //エラー処理を行うActionオブジェクトを作成
+            e.printStackTrace();
             action = new UnknownAction();
         }
         return action;

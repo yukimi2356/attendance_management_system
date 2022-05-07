@@ -35,13 +35,16 @@ import lombok.Setter;
             query = "SELECT COUNT(a) FROM Attendance AS a"),
     @NamedQuery(
             name = "attendance.getAllMine",
-            query = "SELECT a FROM Attendance AS a WHERE a.employee = :employee ORDER BY a.id DESC"),
+            query = "SELECT a FROM Attendance AS a WHERE a.employee = :employee ORDER BY a.date DESC"),
     @NamedQuery(
             name = "attendance.countAllMine",
             query = "SELECT COUNT(a) FROM Attendance AS a WHERE a.employee = :employee"),
     @NamedQuery(
             name = "attendance.getByIdAndDay",
-            query = "SELECT a FROM Attendance AS a WHERE a.employee = :id AND a.date = :date")
+            query = "SELECT a FROM Attendance AS a WHERE a.employee = :id AND a.date = :date"),
+    @NamedQuery(
+            name = "attendance.TotalAttendanceMine",
+            query = "SELECT a FROM Attendance AS a WHERE a.employee = :id AND a.actualHours = :actual_hours")
 })
 
 @Entity
@@ -60,10 +63,6 @@ public class Attendance {
     //日付
     @Column(name = "date", nullable = false)
     private String date;
-
-    //所定勤務時間
-    @Column(name = "scheduled_hours")
-    private Integer scheduledHours;
 
     //勤務状態
     @Column(name = "status", nullable = false)

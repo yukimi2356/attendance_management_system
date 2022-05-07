@@ -45,7 +45,7 @@ public class AuthAction extends ActionBase {
         //セッションにフラッシュメッセージが登録されている場合はリクエストスコープに設定する
         String flush = getSessionScope(AttributeConst.FLUSH);
         if (flush != null) {
-            putRequestScope(AttributeConst.FLUSH,flush);
+            putRequestScope(AttributeConst.FLUSH, flush);
             removeSessionScope(AttributeConst.FLUSH);
         }
 
@@ -80,7 +80,7 @@ public class AuthAction extends ActionBase {
                 //セッションにログイン完了のフラッシュメッセージを設定
                 putSessionScope(AttributeConst.FLUSH, "ログインしました");
                 //トップページへリダイレクト
-                redirect(ForwardConst.ACT_TOP, ForwardConst.CMD_INDEX);
+                redirect(ForwardConst.ACT_ATD, ForwardConst.CMD_INDEX);
             }
         } else {
             //認証失敗の場合
